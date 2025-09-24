@@ -42,6 +42,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('A Reader'),
       ),
       body: Column(children: [Text('Hello!!!')]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.save),
+            label: 'Save',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite),
+            label: 'Fav',
+          ),
+        ],
+      ),
     );
   }
 }
