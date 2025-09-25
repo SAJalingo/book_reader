@@ -1,3 +1,6 @@
+import 'package:book_reader/pages/fav_screen.dart';
+import 'package:book_reader/pages/home_screen.dart';
+import 'package:book_reader/pages/saved_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +35,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = [
+    const HomeScreen(),
+    const SavedScreen(),
+    const FavScreen(),
+    // Text('Home'),
+    // Text('Save'),
+    // Text('Fav'),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,8 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ).colorScheme.inversePrimary,
         title: Text('A Reader'),
       ),
-      body: Column(children: []),
+      body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(
+          context,
+        ).colorScheme.inversePrimary,
+        currentIndex: _currentIndex,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -56,7 +74,18 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.favorite),
             label: 'Fav',
           ),
-        ],selectedItemColor: Theme.of(context).colorScheme.onPrimary,
+        ],
+        selectedItemColor: Theme.of(
+          context,
+        ).colorScheme.onPrimary,
+        unselectedItemColor: Theme.of(
+          context,
+        ).colorScheme.onSurfaceVariant,
+        onTap: (value) {
+          setState(() {
+            _currentIndex = value;
+          });
+        },
       ),
     );
   }
