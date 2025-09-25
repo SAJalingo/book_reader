@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ).colorScheme.inversePrimary,
         title: Text('A Reader'),
       ),
-      body: Column(children: [Text('Hello!!!')]),
+      body: Column(children: []),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -56,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: Icon(Icons.favorite),
             label: 'Fav',
           ),
-        ],
+        ],selectedItemColor: Theme.of(context).colorScheme.onPrimary,
       ),
     );
   }
